@@ -1,32 +1,36 @@
-//array vacio
-var array=[];
+// document.addEventListener("DOMContentLoaded", function () {
+// array vacio
+var array = [];
+
 // Declarar els objects que farem servir
-const dropArea= query.selector('.drop-area');
-const dragDropText= query.selector('h2');
-const button = query.selector('button');
-const input = query.selector('#input-file');
-const preview = query.selctor('#preview');
-
-
+const dropArea = document.querySelector(".drop-area");
+const dragDropText = document.querySelector('h2');
+const button = document.querySelector('button');
+const input = document.querySelector('#input-file');
+const preview = document.querySelector('#preview');
 
 events=['dragover', 'dragleave', 'drop'];
+
 events.forEach(function(evt) {
     dropArea.addEventListener(evt, prevDefault);
 })
 function prevDefault (e) {
     e.preventDefault();
 }
-dropArea.addEventListener("dragover", function(){
+
+dropArea.addEventListener("dragover", function () {
     dropArea.classList.add('active');
-    dropArea.innerText = "Arrastra el fichero hasta aqui....";
+    dragDropText.innerText = "Andale wey ponlo aqui con confianza....";
 });
 
-dropArea.addEventListener("dragleave", function(){
+dropArea.addEventListener("dragleave", function () {
     dropArea.classList.remove('active');
-    dropArea.innerText = "....";
+    dragDropText.innerText = "Arrastra el fichero hasta aquí....";
 });
 
-
-//ctrl + k + u descomenta
-dropArea.addEventListener("drop", (event)=>{});
-dropArea.addEventListener("drop", function(e){});
+// ctrl + k + u descomenta
+dropArea.addEventListener("drop", function (e) {
+    array = array.concat(Array.from(e.dataTransfer.files));
+    console.log(array);
+});
+// })
