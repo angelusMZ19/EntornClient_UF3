@@ -38,7 +38,7 @@ button.addEventListener("click", function (e) {
     input.click();
 });
 
-// Event Listener change del input
+
 input.addEventListener("change", function () {
     let inputFiles = input.files;
     array = array.concat(Array.from(inputFiles));
@@ -64,7 +64,7 @@ function processFile(file, index) {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = function () {
-            let fileURL = reader.result; // Corregido: cambiar fileurL a fileURL
+            let fileURL = reader.result;
             let prev = `<div class="previewImage">
                             <img src="${fileURL}"/>
                             <span>${file.name}</span>
@@ -92,5 +92,21 @@ function readDataAsURL(file) {
     reader.readAsDataURL(file);
 }
 
-// showFiles(arrayDeArchivos);
 
+function removeBtn(i) {
+  
+  if (i >= 0 && i < files.length) {
+    files.splice(i, 1); 
+    showFiles(); 
+    clearPreview();
+  } else {
+    console.error("Índex fora de límits");
+  }
+}
+
+function clearPreview() {
+  var previewDiv = document.getElementById('preview');
+  if (previewDiv) {
+    previewDiv.innerHTML = '';
+  }
+}
