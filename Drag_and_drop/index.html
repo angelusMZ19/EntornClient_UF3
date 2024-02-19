@@ -10,13 +10,17 @@
 </head>
 <body>
     
-
-    <div class="drop-area" draggable="true">
-        <h2>Drag & Drop files</h2>
-        <button>Upload files</button>
-    <input type="file" name="inputFiles[]" id="input-file"  hidden multiple /> <!-- -->
-
-    </div>
+        <div class="drop-area" draggable="true">
+            <h2>Drag & Drop files</h2>
+            <form method="post" enctype="multipart/form-data">
+            <button>Upload files</button>
+            
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="inputFiles[]" id="input-file"  hidden multiple /> 
+            </form>
+        </div>
+    
+    
 
     <div id="preview"></div>
     <script src="js/script.js"></script>

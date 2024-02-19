@@ -6,6 +6,7 @@ const dragDropText = document.querySelector('h2');
 const button = document.querySelector('button');
 const input = document.querySelector('#input-file');
 const preview = document.querySelector('#preview');
+const form = document.querySelector('form');
 
 const events = ['dragover', 'dragleave', 'drop'];
 
@@ -29,7 +30,8 @@ dropArea.addEventListener("dragleave", function () {
 
 dropArea.addEventListener("drop", function (e) {
     array = array.concat(Array.from(e.dataTransfer.files));
-    console.log(array);
+    dropArea.classList.remove('active');
+    dragDropText.innerText = "Arrastra el fichero hasta aquí....";
     showFiles(array);
 });
 
@@ -38,21 +40,32 @@ button.addEventListener("click", function (e) {
     input.click();
 });
 
-
 input.addEventListener("change", function () {
     let inputFiles = input.files;
     array = array.concat(Array.from(inputFiles));
     showFiles(array);
+    form.submit();
+});
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+    const dataTransfer = new DataTransfer();
+    files.forEach(file=>{
+        dataTransfer.items.add(file);
+    })
+    input.files = dataTransfer.files;
+    form.submit();
+    console.log("enviado");
 });
 
 function showFiles(fileArray) {
-    if (fileArray.length > 0) {
+    if (fileArray.length >= 0) {
         preview.innerHTML = '';
         fileArray.forEach((file, index) => {
             processFile(file, index);
         });
     } else {
-        console.log("Sin archivos para mostrar.");
+        console.log("Sin archivos para mostrar.");//
     }
 }
 
@@ -68,45 +81,15 @@ function processFile(file, index) {
             let prev = `<div class="previewImage">
                             <img src="${fileURL}"/>
                             <span>${file.name}</span>
-                            <span onclick="remove(${index})" class="material-symbols-outlined removeBtn">X</span>
+                            <span onclick="removeBtn(${index})" class="material-symbols-outlined removeBtn">X</span>
                         </div>`;
             preview.innerHTML += prev;
         }
-    } else {
-        console.log(`El archivo ${file.name} no es una imagen.`);
     }
 }
 
-function isImageFile(file) {
-
-    const lowerCaseFile = file.name.toLowerCase();
-
-    return extensiones.some(ext => lowerCaseFile.endsWith(ext));
-}
-
-function readDataAsURL(file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        console.log("Data URL:", e.target.result);
-    };
-    reader.readAsDataURL(file);
-}
-
-
 function removeBtn(i) {
-  
-  if (i >= 0 && i < files.length) {
-    files.splice(i, 1); 
-    showFiles(); 
-    clearPreview();
-  } else {
-    console.error("Índex fora de límits");
-  }
-}
-
-function clearPreview() {
-  var previewDiv = document.getElementById('preview');
-  if (previewDiv) {
-    previewDiv.innerHTML = '';
-  }
+    array.splice(i, 1); 
+    preview.innerHTML = '';
+    showFiles(array); 
 }
