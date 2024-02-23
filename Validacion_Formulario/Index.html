@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacion Formulario</title>
+    <link rel="stylesheet" href="css/style.css">
+   
+</head>
+<body>
+    
+
+    <form>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre" ><p id="missatge-error" class="error-message"></p><br>
+
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" placeholder="Email"  onfocusout=`validateEmail(email)`><br>
+
+        <label for="contraseña">Contraseña: </label><br>
+        <input type="text" id="contraseña" name="contraseña" placeholder="Contraseña"><br>
+        
+        <label for="repetirContrasenya">Repetir Contraseña: </label><br>
+        <input type="text" id="repetirContrasenya" name="repetirContrasenya" placeholder="Repite Contraseña"><br>
+
+        <label for="postal">Direccion Postal: </label><br>
+        <input type="text" id="postal" name="postal" placeholder="Codigo Postal"><br><br>
+        
+        
+        <input type="submit" value="Submit"><br>
+    </form>
+    <script src="js/Script.js"></script>
+    
+</body>
+</html>
