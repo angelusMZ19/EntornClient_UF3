@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f5f5;
   margin: 0;
   padding: 0;
   display: flex;
@@ -11,38 +11,44 @@ body {
 
 form {
   background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 700px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   font-weight: bold;
+  color: #333;
 }
 
 input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 input[type="submit"] {
-  background-color: #4caf50;
-  color: #ffffff;
+  background-color: #3498db;
+  color: #fff;
   cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  padding: 15px;
 }
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: rgb(164, 218, 182);
 }
 
-.error-message {
-  color: red;
-  margin-top: -10px;
-  margin-bottom: 15px;
-}

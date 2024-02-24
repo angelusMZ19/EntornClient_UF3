@@ -11,20 +11,33 @@
     
 
     <form>
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre" ><p id="missatge-error" class="error-message"></p><br>
+        <label for="nombre">Nombre:* </label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+        <p id="errorNom" style="color: red;"></p><br>
 
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" name="email" placeholder="Email"  onfocusout=`validateEmail(email)`><br>
+        <label for="email">Email:* </label>
+        <input type="text" id="email" name="email" placeholder="Email"  onfocusout=`validateEmail(email)`>
+        <p id="mensajeErrorEmail" style="color: red;"></p><br>
 
-        <label for="contraseña">Contraseña: </label><br>
-        <input type="text" id="contraseña" name="contraseña" placeholder="Contraseña"><br>
+        <label for="contrasenya">Contraseña: * </label>
+        <input type="text" id="contrasenya" name="contrasenya" placeholder="Contraseña">
+        <p id="condicion">
+            <ul id="condiciones">
+                <li>Entre 8 y 15 caractéres</li>
+                <li>Al menos una minuscula</li>
+                <li>Al menos una mayuscula</li>
+                <li>Al menos un numero</li>
+                <li>Al menos un caractér especial</li>
+            </ul>
+        </p>
         
-        <label for="repetirContrasenya">Repetir Contraseña: </label><br>
-        <input type="text" id="repetirContrasenya" name="repetirContrasenya" placeholder="Repite Contraseña"><br>
+        <label for="repetirContrasenya">Repetir Contraseña:* </label>
+        <input type="text" id="repetirContrasenya" name="repetirContrasenya" placeholder="Repite Contraseña">
+        <p id="mensajeErrorContrasenya" style="color: red;"></p><br>
 
-        <label for="postal">Direccion Postal: </label><br>
-        <input type="text" id="postal" name="postal" placeholder="Codigo Postal"><br><br>
+        <label for="postal">Direccion Postal: * </label>
+        <input type="text" id="postal" name="postal" placeholder="Codigo Postal">
+        <p id="error" style="color: red;"></p><br>
         
         
         <input type="submit" value="Submit"><br>
