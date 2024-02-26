@@ -13,6 +13,7 @@ form.addEventListener("focusout", (event) => {
             let errorNom = document.getElementById("errorNom");
             if (value.trim() === '') {
                 nombre.style.border = "red 2px solid";
+                event.target.style.background = "rgb(242, 165, 165)";
                 errorNom.innerHTML = "<p>Ingrese su nombre.</p>";
             } else {
                 event.target.style.background = "rgb(49, 210, 124)";
