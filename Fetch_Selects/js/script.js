@@ -12,20 +12,17 @@ fetch('php/getCats.php')
             
             category.appendChild(option);
         });
-        //option.innerHTML = value.nom;
+       
+        recarga();
     })
     .catch((error) => {
         console.error(error)
     });
 
 
-
-category.addEventListener("change", function () {
-
+function recarga(){
     let formData = new FormData();
     formData.append('categoria', category.value); 
-    // console.log(category.value);
-
     let options = {
         method: 'POST',
         body: formData
@@ -40,11 +37,14 @@ category.addEventListener("change", function () {
                 let option = document.createElement("option");
                 option.value = value.id;
                 option.text = value.nom;
-                //option.innerHTML = value.nom;
                 subcat.appendChild(option);
             });
         })
         .catch((error) => {
             console.error(error); 
         });
+}
+category.addEventListener("change", function () {
+    recarga();
+    
 });
