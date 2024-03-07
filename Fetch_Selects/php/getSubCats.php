@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 <?php
 $db_host = "localhost";
 $db_usuario = "root";
@@ -19,9 +11,10 @@ if ($conn->connect_error) {
 }
 
 
-$cat = 4; 
+$cat = $_POST['categoria']; 
 
-$sql = "SELECT * FROM subcategorias WHERE id_categoria= $cat";
+//$cat = 1; 
+$sql = "SELECT * FROM subcategorias where id_categoria= '$cat' ";
 $result = $conn->query($sql);
 
 $return = array();
@@ -32,16 +25,19 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $objeto = new stdClass();
         $objeto->nom = $row["nom"];
-        $objeto->valor = $row["id"];
+        $objeto->id = $row["id"];
         $return[] = $objeto;
     }
+    header("Content-Type:application/json");
+    echo json_encode($return);
+}else{
+    header("HTTP/1.1 500 Internal Server Error");
+    echo json_encode(array("error" => $conn->error));
 }
 
-echo json_encode($return);
+
 $conn->close();
 
 ?>  
-    
-</body>
-</html>
+
 
