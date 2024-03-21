@@ -12,7 +12,7 @@
 <?php
     include('../connection.php');
 
-    $sql = "SELECT * FROM productes";
+    $sql = "SELECT * FROM producte";
 
     $result = $conn->query($sql);
 
@@ -50,13 +50,9 @@
                                 <th scope="row">' . $array[$i]["id"] . '</th>
                                 <td>' . $array[$i]["nom"] . '</td>
                                 <td><a href="ex1Form.php?id=' . $array[$i]["id"] . '" class="btn btn-outline-info">Edit</a></td>
-                                <td><a href="" class="btn btn-outline-danger">Remove</a></td>
+                                <td><a href="eliminar.php" class="btn btn-outline-danger">Remove</a></td>
                             </tr>';
                 }
-                 
-                    
-                        
-
             ?>
     
         </tbody>

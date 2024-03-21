@@ -3,7 +3,7 @@
 if(isset($_POST["id"]) && !empty($_POST["id"])){
     include("../connection.php");
 
-    $sql = "SELECT * FROM productes WHERE id=" . $_POST["id"];
+    $sql = "SELECT * FROM producte WHERE id=" . $_POST["id"];
 
     $result = $conn->query($sql);
 

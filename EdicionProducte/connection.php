@@ -3,7 +3,7 @@
  $hostname = "localhost";
  $username = "root";
  $password = "";
- $dbname = "categoria";
+ $dbname = "afegir";
 
 
  $conn = new mysqli($hostname, $username, $password, $dbname);

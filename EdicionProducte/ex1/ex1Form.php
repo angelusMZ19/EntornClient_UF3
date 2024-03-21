@@ -15,7 +15,7 @@
 
      include('../connection.php');
         
-     $sql = "SELECT * FROM productes WHERE id=" . $_GET["id"];
+     $sql = "SELECT * FROM producte  WHERE id=" . $_GET["addEdit"];
 
         $result = $conn->query($sql);
 

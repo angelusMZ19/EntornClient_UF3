@@ -3,9 +3,9 @@
         
     if(isset($_POST["nomProducte"]) && !empty($_POST["nomProducte"])){
         if($_POST["addEdit"]==0){
-            $sql = "INSERT INTO productes (nom) VALUES ('" . $_POST["nomProducte"] ."')";
+            $sql = "INSERT INTO producte (nom) VALUES ('" . $_POST["nomProducte"] ."')";
         }else{
-            $sql = "UPDATE productes SET nom='" . $_POST["nomProducte"] . "' WHERE id=" . $_POST["addEdit"];
+            $sql = "UPDATE producte SET nom='" . $_POST["nomProducte"] . "' WHERE id=" . $_POST["addEdit"];
         }
         
 
