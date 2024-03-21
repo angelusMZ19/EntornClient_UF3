@@ -12,17 +12,10 @@
 <?php 
 
     if(isset($_GET["id"]) && !empty($_GET["id"])){
-        $servername = "bbdd.martamillanlom.cat";
-        $username = "ddb193275";
-        $password = "bbddTest12!%";
-        $dbname = "ddb193275";
 
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        $sql = "SELECT * FROM productes WHERE id=" . $_GET["id"];
+     include('../connection.php');
+        
+     $sql = "SELECT * FROM productes WHERE id=" . $_GET["id"];
 
         $result = $conn->query($sql);
 
