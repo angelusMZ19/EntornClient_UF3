@@ -12,7 +12,7 @@
 
     include("../connection.php");
 
-    $sql = "SELECT * FROM productes";
+    $sql = "SELECT * FROM producte";
 
     $result = $conn->query($sql);
 
