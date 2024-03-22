@@ -1,10 +1,9 @@
 <?php
-    include("../db_connection.php");
+    include("../connection.php");
 
-    if(isset($_GET['id'])) {
-
-        $sql = "DELETE FROM producte WHERE id=" . $_GET["id"];
-        $result = mysqli_query($conn, $sql);
-    }
+        $delete= mysqli_real_escape_string($conn, $_GET["id"] );
+        $sql = "DELETE FROM producte WHERE id= $delete" ;
+        echo $sql  ; 
     header('Location: ex1List.php');
+    $conn.close();
 ?>
