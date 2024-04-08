@@ -1,12 +1,8 @@
 <?php
-$db_server = "localhost";
-$db_name = "m6";
-$db_user = "angelo";
-$db_pwd = "";
-
-$conn = mysqli_connect($db_server, $db_user, $db_pwd, $db_name);
+include("connection.php");
 
 if (mysqli_ping($conn)) {
+    echo "echo";
     $id = $_POST["id"];
     $sql = "SELECT * FROM barris WHERE id_districte = $id";
     $query = mysqli_query($conn, $sql);
